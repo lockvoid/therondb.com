@@ -1,0 +1,21 @@
+<aside class="main">
+  <nav>
+    {% for section in site.data.docs %}
+      {% if section.items.size > 0 %}
+        <section class="tree {% if section.items contains page.url %}active{% endif %}">
+          <h4>{{ section.title }}</h4>
+
+          <ul>
+          {% for item in section.items %}
+            <li>{% include aside_item.html item=item %}</li>
+          {% endfor %}
+          </ul>
+        </section>
+      {% else %}
+        <h4>{% include aside_item.html item=section %}</h4>
+      {% endif %}
+    {% endfor %}
+  </nav>
+</aside>
+
+

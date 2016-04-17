@@ -1,0 +1,10 @@
+baseurl: "/docs"
+
+gems:
+  - jekyll-assets
+
+markdown: kramdown
+
+collections:
+  docs:
+    output: true
