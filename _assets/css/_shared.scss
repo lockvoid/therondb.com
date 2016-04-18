@@ -1,0 +1,120 @@
+html {
+  box-sizing: border-box !important;
+  font-size: 62.5%;
+  height: 100%;
+}
+
+body {
+  background-color: darken(white, 4%);
+  color: lighten(black, 10%);
+  font-family: OpenSans, $fonts;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+}
+
+*, *:before, *:after {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: inherit !important;
+}
+
+h1, h2, h3, h4, h5, h6, address {
+  margin: 0;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 24px;
+}
+
+h4 {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+
+table {
+  border-collapse: collapse;
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus, &:active {
+    outline: none;
+  }
+}
+
+p {
+  margin: 15px 0;
+  line-height: 1.8;
+}
+
+ul, ol {
+  list-style-type: none;
+  margin:  0;
+  padding: 0;
+}
+
+svg {
+  display: block;
+
+  &:not(.row) path {
+    fill: currentColor;
+  }
+}
+
+blockquote {
+  margin: 15px 0;
+  color: lighten(black, 40%);
+  border-left: 4px solid lighten(black, 85%);
+  padding-left: 10px;
+  font-size: 14px;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+figure {
+  margin: 15px 0;
+}
+
+pre, code {
+  background-color: white;
+  border-radius: 3px;
+  font-size: 15px;
+}
+
+code {
+  padding: 1px 5px;
+}
+
+pre {
+  overflow-x: auto;
+  padding: 8px 12px;
+
+  > code {
+    border: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  display: flex;
+  padding: 0 25px;
+
+  &.main {
+    padding-top: 80px;
+    max-width: 1000px;
+  }
+}

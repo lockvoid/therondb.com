@@ -2,8 +2,19 @@
 
 - title: Guide
   items:
+  - /guide/installing-theron.html
   - /guide/understanding-stream.html
+  - /guide/authenticating-requests.html
+  - /guide/securing-queries.html
 
-- title: API
+- title: JavaScript API
   items:
-  - /api/constructor.html
+  - /api/Theron.html
+  - /api/TheronAction.html
+  - /api/ROW_ADDED.html
+  - /api/ROW_CHANGED.html
+  - /api/ROW_MOVED.html
+  - /api/ROW_REMOVED.html
+  - /api/BEGIN_TRANSACTION.html
+  - /api/COMMIT_TRANSACTION.html
+  - /api/ROLLBACK_TRANSACTION.html

@@ -10,11 +10,31 @@
   </head>
 
   <body>
-    {% include aside.html %}
+    <header class="main">
+      <wrapper>
+        <a href="/" class="logo">{% asset_source 'theron.svg' %}</a>
 
-    <main>
-      {{ content }}
-    </main>
+        <nav class="desktop">
+          <ul>
+            <li>
+              <a href="/docs" class="active">Docs</a>
+            </li>
+
+            <li>
+              <a href="/signin" id="signin">Sign In</a>
+            </li>
+          </ul>
+        </nav>
+      </wrapper>
+    </header>
+
+    <wrapper class="main">
+      {% include aside.html %}
+
+      <main class="{{page.class}}">
+        {{ content }}
+      </main>
+    </wrapper>
 
     {% javascript app %}
   </body>

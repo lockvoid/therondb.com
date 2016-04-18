@@ -1,3 +1,14 @@
 {% assign doc = site.docs | where: "url", include.item | first %}
 
-<a {% if doc.url == page.url %}class="current"{% endif %} href="{{ doc.url | prepend: site.baseurl }}">{{ doc.title }}</a>
+<a {% if doc.url == page.url %}class="current"{% endif %} href="{{ doc.url | prepend: site.baseurl }}">
+  {% case doc.icon %}
+    {% when 'class' %}
+      <i class="icon class">C</i>
+    {% when 'interface' %}
+      <i class="icon interface">I</i>
+    {% when 'value' %}
+      <i class="icon value">V</i>
+  {% endcase %}
+
+  {{ doc.title }}
+</a>

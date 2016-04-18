@@ -1,3 +1,10 @@
-body {
-  display: flex;
+@import "vars";
+@import "fonts";
+@import "syntax";
+@import "shared";
+@import "ui";
+
+img {
+  width: 900px;
 }
+

@@ -3,7 +3,7 @@
     {% for section in site.data.docs %}
       {% if section.items.size > 0 %}
         <section class="tree {% if section.items contains page.url %}active{% endif %}">
-          <h4>{{ section.title }}</h4>
+          <h4>{{ section.title }}<i></i></h4>
 
           <ul>
           {% for item in section.items %}

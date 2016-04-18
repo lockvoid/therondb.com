@@ -1,0 +1,164 @@
+header.main {
+  background-color: rgba(white, .9);
+  box-shadow: 0 1px 5px rgba(black, .15);
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+
+  wrapper {
+    align-items: center;
+    height: 80px;
+  }
+
+  a.logo {
+    color: $color-primary;
+
+    svg {
+      height: 28px;
+    }
+  }
+
+  nav.desktop {
+    margin-left: auto;
+  }
+
+  nav.desktop ul {
+    align-items: center;
+    display: flex;
+
+    li {
+      margin-left: 30px;
+
+      a {
+        color: lighten(black, 40);
+        font-size: 15px;
+        font-weight: 500;
+        position: relative;
+        transition: color .1s;
+
+        &.active, &:hover {
+          color: $color-primary;
+        }
+
+        &.active:after {
+          border-bottom: 2px solid $color-primary;
+          content: "";
+          bottom: -6px;
+          left: 0;
+          position: absolute;
+          right: 0;
+        }
+      }
+    }
+  }
+}
+
+aside.main {
+  flex: 1;
+  max-width: 300px;
+  min-width: 220px;
+  padding-top: 40px;
+
+  h4, section {
+    margin-bottom: 10px;
+  }
+
+  h4, h4 a {
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 400;
+    color: lighten(black, 10%);
+
+    &:hover {
+      color: $color-primary !important;
+    }
+  }
+
+  a {
+    color: lighten(black, 30%);
+    font-size: 13px;
+
+    &:hover {
+      color: $color-primary !important;
+    }
+
+    &.current {
+      color: $color-primary !important;
+      font-weight: 500;
+    }
+  }
+
+  section.tree {
+    h4 {
+      align-items: center;
+      display: flex;
+
+      i {
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        border-top: 5px solid lighten(black, 50%);
+        height: 0;
+        margin-left: 7px;
+        width: 0;
+      }
+    }
+
+    ul {
+      display: none;
+      border-left: 3px solid lighten(black, 85%);
+      padding-left: 15px;
+
+      li {
+        padding: 5px 0;
+
+        a {
+          align-items: center;
+          display: flex;
+
+          i.icon {
+            align-items: center;
+            background: red;
+            border-radius: 2px;
+            color: rgba(white, .8);
+            display: flex;
+            font-style: normal;
+            font-weight: 500;
+            height: 20px;
+            justify-content: center;
+            margin-right: 5px;
+            width: 20px;
+
+            &.class {
+              background-color: #449d44;
+            }
+
+            &.interface {
+              background-color: #ec971f;
+            }
+
+            &.value {
+              background-color: #31b0d5;
+            }
+          }
+        }
+      }
+    }
+
+    &.active {
+      h4 i {
+        border-bottom: 5px solid lighten(black, 50%);
+        border-top: 0;
+      }
+
+      ul {
+        display: block;
+      }
+    }
+  }
+}
+
+main {
+  padding-top: 35px;
+  flex: 3;
+}
