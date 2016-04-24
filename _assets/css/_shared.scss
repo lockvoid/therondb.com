@@ -28,16 +28,6 @@ h1, h2, h3, h4, h5, h6, address {
   margin: 0;
 }
 
-h2 {
-  font-weight: 400;
-  font-size: 24px;
-}
-
-h4 {
-  font-weight: 500;
-  font-size: 16px;
-}
-
 table {
   border-collapse: collapse;
 }
@@ -76,11 +66,10 @@ svg {
 }
 
 blockquote {
-  margin: 15px 0;
-  color: lighten(black, 40%);
   border-left: 4px solid lighten(black, 85%);
+  color: lighten(black, 40%);
+  margin: 15px 0;
   padding-left: 10px;
-  font-size: 14px;
 
   > :last-child {
     margin-bottom: 0;
@@ -95,7 +84,8 @@ pre, code {
   background-color: white;
   border-radius: 3px;
   border: 0;
-  font-size: 14px;
+  font-family: Monaco, Consolas, monospace;
+  font-size: 13px;
 }
 
 code {
@@ -104,21 +94,31 @@ code {
 
 pre {
   overflow-x: auto;
-  padding: 5px 5px;
+  padding: 5px 7px;
+
+  &.lineno {
+    padding-right: 5px;
+    background-color: darken(white, 10);
+  }
 
   > code {
     padding: 1px 0;
   }
+
+  pre {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 wrapper {
+  display: flex;
   margin: 0 auto;
   max-width: 1200px;
-  display: flex;
   padding: 0 25px;
 
   &.main {
-    padding-top: 80px;
     max-width: 1000px;
+    padding-top: 80px;
   }
 }

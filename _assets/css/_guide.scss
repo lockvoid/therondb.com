@@ -1,0 +1,169 @@
+main.guide {
+  h2 {
+    font-size: 29px;
+    font-weight: 400;
+  }
+
+  h3 {
+      font-size: 19px;
+      font-weight: 400;
+      margin: 15px 0;
+
+  }
+}
+
+main.guide.streaming {
+  ul.lifecycle {
+    display: flex;
+    list-style-type: none;
+    margin: 25px 0;
+    position: relative;
+
+    &:before {
+      @include size(auto, 2px);
+      @include position(absolute, null 2px 14px 0px);
+      background-color: $color-primary;
+      content: "";
+      z-index: -1;
+    }
+
+    &:after {
+      @include position(absolute, null 0 9px null);
+      @include size(0px, 0px);
+      border-bottom: 6px solid transparent;
+      border-left: 8px solid $color-primary;
+      border-top: 6px solid transparent;
+      content: "";
+      z-index: -1;
+    }
+
+    li {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+
+      h4 {
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+
+      i {
+        @include size(30px, 30px);
+        align-items: center;
+        background-color: $color-primary;
+        border-radius: 50%;
+        color: white;
+        display: flex;
+        font-style: normal;
+        font-weight: 500;
+        justify-content: center;
+      }
+    }
+  }
+
+  ol.stream {
+    font-weight: 500;
+
+    li {
+      border-radius: 2px;
+      line-height: 2;
+
+      code {
+        background-color: white;
+        border: 1px solid darken(white, 15);
+        margin-left: 5px;
+        padding: 5px;
+      }
+
+      &.row-added code {
+        background-color: mix(#449d44, white, 15);
+      }
+
+      &.row-changed code {
+        background-color: mix(#31b0d5, white, 15);
+      }
+
+      &.row-moved code {
+        background-color: mix(#ec971f, white, 15);
+      }
+
+      &.row-removed code {
+        background-color: mix(#c9302c, white, 15);
+      }
+
+    }
+  }
+
+  ul.diff {
+    display: flex;
+    list-style-type: none;
+    margin: 35px 0 15px;
+
+    li + li {
+      margin-left: 50px;
+    }
+
+    table {
+      th, td {
+        border: 1px solid darken(white, 15);
+        text-align: center;
+      }
+
+      th {
+        background-color: darken(white, 10);
+        font-size: 12px;
+        font-weight: 500;
+        height: 40px;
+        text-transform: uppercase;
+      }
+
+      td {
+        background-color: white;
+        @include size(60px, 60px);
+      }
+    }
+
+    &.diff-1 li:nth-child(2) table {
+      tr td {
+        background-color: mix(#449d44, white, 15);
+      }
+    }
+
+    &.diff-2 li:nth-child(2) table {
+      tr td {
+        background-color: mix(#ec971f, white, 15);
+      }
+
+      tr:nth-child(3) td {
+        background-color: mix(#31b0d5, white, 15);
+      }
+    }
+
+    &.diff-3 li:nth-child(2) table {
+      &:nth-of-type(1) {
+        tr td {
+          background-color: mix(#ec971f, white, 15);
+        }
+
+        tr:nth-child(1) td {
+          background-color: mix(#449d44, white, 15);
+        }
+      }
+
+      &:nth-of-type(2) {
+        tr:nth-child(1) td {
+          background-color: mix(#c9302c, white, 15);
+        }
+      }
+    }
+
+    h4 {
+      color: lighten(black, 50);
+      font-size: 10px;
+      padding: 10px 0;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+}

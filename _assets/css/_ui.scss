@@ -31,12 +31,10 @@ spinner {
 }
 
 header.main {
+  @include position(fixed, 0 0 null 0);
   background-color: rgba(white, .9);
   box-shadow: 0 1px 5px rgba(black, .15);
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
+  z-index: 99;
 
   wrapper {
     align-items: center;
@@ -198,5 +196,10 @@ main {
   ul {
     list-style-position: inside;
     list-style-type: disc;
+  }
+
+  ol {
+    list-style-position: inside;
+    list-style-type: decimal;
   }
 }
