@@ -1,7 +1,26 @@
 ---
-layout: docs
 ---
 
-<div class="home">
-  <h1>Home</h1>
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Docs - Theron</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="{{ site.description }}" />
+
+    {% stylesheet app %}
+  </head>
+
+  <body class="flex">
+    <spinner>
+      <div></div>
+      <div></div>
+      <div></div>
+    </spinner>
+
+    <script type="text/javascript">
+      window.location = '/docs/quickstart.html';
+    </script>
+  </body>
+</html>

@@ -12,6 +12,11 @@ body {
   font-weight: 400;
   line-height: 1.5;
   margin: 0;
+
+  &.flex {
+    display: flex;
+    height: 100%;
+  }
 }
 
 *, *:before, *:after {
@@ -32,7 +37,6 @@ h4 {
   font-weight: 500;
   font-size: 16px;
 }
-
 
 table {
   border-collapse: collapse;

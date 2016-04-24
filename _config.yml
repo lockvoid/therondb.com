@@ -1,4 +1,5 @@
 baseurl: "/docs"
+description: "Learn about building realtime apps with Theron."
 
 gems:
   - jekyll-assets
