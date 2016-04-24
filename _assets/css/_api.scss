@@ -1,0 +1,71 @@
+main.api {
+  header.summary {
+    h1 {
+      border-bottom: 2px solid $color-primary;
+      font-size: 29px;
+      font-weight: 400;
+    }
+
+    h2 {
+      font-size: 19px;
+      font-weight: 400;
+      margin: 15px 0;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 15px 0;
+
+      li {
+        background-color: white;
+        padding: 5px 10px;
+
+        & + li {
+          border-top: 1px solid darken(white, 10);
+        }
+
+        p {
+          line-height: 1.8;
+          margin: 0;
+
+          &:first-child {
+            font-weight: 500;
+          }
+
+          &:last-child {
+            color: lighten(black, 30);
+          }
+        }
+      }
+    }
+  }
+
+  section.details {
+    h3 {
+      background-color: darken(white, 10);
+      border-left: 3px solid $color-primary;
+      font-size: 16px;
+      font-weight: 500;
+      margin-top: 45px;
+      padding: 2px 5px;
+    }
+
+    h4 {
+      font-size: 15px;
+      font-weight: 500;
+      font-size: 16px;
+      text-transform: uppercase;
+      margin: 15px 0;
+    }
+
+    h4 + ul {
+      li {
+        margin-top: 15px;
+
+        p {
+          line-height: 1.8;
+        }
+      }
+    }
+  }
+}

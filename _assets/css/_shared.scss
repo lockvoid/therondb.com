@@ -39,11 +39,12 @@ table {
 }
 
 a {
-  color: $color-primary;
+  color: $color-link;
   text-decoration: none;
 
   &:hover {
     cursor: pointer;
+    text-decoration: underline;
   }
 
   &:focus, &:active {
@@ -89,7 +90,8 @@ figure {
 pre, code {
   background-color: white;
   border-radius: 3px;
-  font-size: 15px;
+  border: 0;
+  font-size: 14px;
 }
 
 code {
@@ -98,12 +100,10 @@ code {
 
 pre {
   overflow-x: auto;
-  padding: 8px 12px;
+  padding: 5px 5px;
 
   > code {
-    border: 0;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 1px 0;
   }
 }
 
