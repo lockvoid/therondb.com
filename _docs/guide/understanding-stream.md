@@ -89,13 +89,13 @@ react to data changes. It’s a plain JavaScript object with a data artefact
 contains the `type` and `payload` property. For now, just check the possible
 action types, we’ll introduce each action type later:
 
-- [`ROW_ADDED`](../api/ROW_ADDED.html) - a row has been added.
-- [`ROW_REMOVED`](../api/ROW_REMOVED.html) - a row has been changed.
-- [`ROW_MOVED`](../api/ROW_MOVED.html) - a row has been removed.
-- [`ROW_CHANGED`](../api/ROW_CHANGED.html) - a row has been changed.
-- [`BEGIN_TRANSACTION`](../api/BEGIN_TRANSACTION.html) - a dataset is stale.
-- [`COMMIT_TRANSACTION`](../api/COMMIT_TRANSACTION.html) - a dataset is fresh.
-- [`ROLLBACK_TRANSACTION`](../api/ROLLBACK_TRANSACTION.html) - a dataset is invalid.
+- [`ROW_ADDED`](../api/ROW_ADDED.html) - row has been added.
+- [`ROW_REMOVED`](../api/ROW_REMOVED.html) - row has been changed.
+- [`ROW_MOVED`](../api/ROW_MOVED.html) - row has been removed.
+- [`ROW_CHANGED`](../api/ROW_CHANGED.html) - row has been changed.
+- [`BEGIN_TRANSACTION`](../api/BEGIN_TRANSACTION.html) - dataset is stale.
+- [`COMMIT_TRANSACTION`](../api/COMMIT_TRANSACTION.html) - dataset is fresh.
+- [`ROLLBACK_TRANSACTION`](../api/ROLLBACK_TRANSACTION.html) - dataset is invalid.
 
 These action types can be imported:
 
