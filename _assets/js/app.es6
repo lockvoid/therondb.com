@@ -9,21 +9,22 @@ function getCookie(name) {
   return (result === null) ? null : result[1];
 }
 
-function scrollTo(element, to, duration, callback) {
+function scrollTo(to, duration, callback) {
   if (duration <= 0) {
-    return;
+    return callback && callback();
   }
 
-  const perTick = (to - element.scrollTop) / duration * 10;
+  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  const perTick = (to - scrollTop) / duration * 10;
 
   setTimeout(() => {
-    element.scrollTop = element.scrollTop + perTick;
+    document.documentElement.scrollTop = document.body.scrollTop = scrollTop + perTick;
 
-    if (element.scrollTop === to) {
-      return callback && callback();
+    if (scrollTop === to) {
+      return;
     }
 
-    scrollTo(element, to, duration - 10, callback);
+    scrollTo(to, duration - 10, callback);
   }, 10);
 }
 
@@ -57,7 +58,7 @@ function scrollTo(element, to, duration, callback) {
       if (target){
         event.preventDefault();
 
-        scrollTo(document.body, target.offsetTop - 90, 10, () => {
+        scrollTo(target.offsetTop - 90, 10, () => {
           history.pushState(null, null, hash);
         });
       }
@@ -68,7 +69,7 @@ function scrollTo(element, to, duration, callback) {
     const target = $(':target')[0];
 
     if (target){
-      scrollTo(document.body, target.offsetTop - 90, 10);
+      scrollTo(target.offsetTop - 90, 10);
     }
   }, 500);
 })();
