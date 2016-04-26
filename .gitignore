@@ -1,4 +1,5 @@
 .DS_Store
 .asset-cache
+.env
 .jekyll-metadata
 /_site

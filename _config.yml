@@ -9,3 +9,7 @@ markdown: kramdown
 collections:
   docs:
     output: true
+
+assets:
+  assets:
+    - "*.woff"
