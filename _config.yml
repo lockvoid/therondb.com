@@ -11,5 +11,8 @@ collections:
     output: true
 
 assets:
+  digest: true
+
   assets:
     - "*.woff"
+
