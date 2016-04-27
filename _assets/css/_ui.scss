@@ -36,9 +36,14 @@ header.main {
   box-shadow: 0 1px 5px rgba(black, .15);
   z-index: 99;
 
-  wrapper {
+  &.narrow > wrapper {
+    height: 60px;
+  }
+
+  > wrapper {
     align-items: center;
     height: 80px;
+    transition: height .3s;
   }
 
   a.logo {

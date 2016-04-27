@@ -3,6 +3,10 @@ main.guide {
     font-size: 29px;
     font-weight: 400;
     margin: 15px 0;
+
+    &:first-child {
+      margin-top: 0px;
+    }
   }
 
   h3 {

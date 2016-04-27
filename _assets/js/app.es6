@@ -73,3 +73,11 @@ function scrollTo(to, duration, callback) {
     }
   }, 500);
 })();
+
+(function() {
+  const header = $('header.main')[0];
+
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('narrow', window.pageYOffset > 100);
+  });
+})();
