@@ -2,7 +2,7 @@
 class: api
 icon: class
 layout: docs
-permalink: /api/Theron.html
+permalink: /docs/api/Theron.html
 title: Theron
 ---
 

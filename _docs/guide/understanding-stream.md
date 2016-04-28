@@ -2,7 +2,7 @@
 layout: docs
 class: guide streaming
 title: Understanding Stream
-permalink: /guide/understanding-stream.html
+permalink: /docs/guide/understanding-stream.html
 ---
 
 ## Reactive Nature

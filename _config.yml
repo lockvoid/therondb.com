@@ -1,4 +1,3 @@
-baseurl: "/docs"
 description: "Learn about building realtime apps with Theron."
 
 gems:
@@ -11,8 +10,9 @@ collections:
     output: true
 
 assets:
+  prefix: "/static/assets"
+
   digest: true
 
   assets:
     - "*.woff"
-

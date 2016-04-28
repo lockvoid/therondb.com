@@ -2,7 +2,7 @@
 class: api constants
 icon: value
 layout: docs
-permalink: /api/ROW_ADDED.html
+permalink: /docs/api/ROW_ADDED.html
 title: ROW_ADDED
 ---
 

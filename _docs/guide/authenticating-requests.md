@@ -1,7 +1,7 @@
 ---
 class: guide authenticating
 layout: docs
-permalink: /guide/authenticating-requests.html
+permalink: /docs/guide/authenticating-requests.html
 title: Authenticating Requests
 ---
 

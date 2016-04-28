@@ -2,7 +2,7 @@
 class: api
 icon: value
 layout: docs
-permalink: /api/ROW_REMOVED.html
+permalink: /docs/api/ROW_REMOVED.html
 title: ROW_REMOVED
 ---
 

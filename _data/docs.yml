@@ -1,20 +1,20 @@
-- /quickstart.html
+- /docs/quickstart.html
 
 - title: Guide
   items:
-  - /guide/installing-theron.html
-  - /guide/understanding-stream.html
-  - /guide/authenticating-requests.html
-  - /guide/securing-queries.html
+  - /docs/guide/installing-theron.html
+  - /docs/guide/understanding-stream.html
+  - /docs/guide/authenticating-requests.html
+  - /docs/guide/securing-queries.html
 
 - title: JavaScript API
   items:
-  - /api/Theron.html
-  - /api/TheronAction.html
-  - /api/ROW_ADDED.html
-  - /api/ROW_CHANGED.html
-  - /api/ROW_MOVED.html
-  - /api/ROW_REMOVED.html
-  - /api/BEGIN_TRANSACTION.html
-  - /api/COMMIT_TRANSACTION.html
-  - /api/ROLLBACK_TRANSACTION.html
+  - /docs/api/Theron.html
+  - /docs/api/TheronAction.html
+  - /docs/api/ROW_ADDED.html
+  - /docs/api/ROW_CHANGED.html
+  - /docs/api/ROW_MOVED.html
+  - /docs/api/ROW_REMOVED.html
+  - /docs/api/BEGIN_TRANSACTION.html
+  - /docs/api/COMMIT_TRANSACTION.html
+  - /docs/api/ROLLBACK_TRANSACTION.html

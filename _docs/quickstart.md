@@ -1,7 +1,7 @@
 ---
 class: guide quickstart
 layout: docs
-permalink: /quickstart.html
+permalink: /docs/quickstart.html
 title: Quickstart
 ---
 

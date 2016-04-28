@@ -3,7 +3,7 @@ layout: docs
 icon: interface
 class: api
 title: TheronAction
-permalink: /api/TheronAction.html
+permalink: /docs/api/TheronAction.html
 ---
 
 <header class="summary" markdown="1">

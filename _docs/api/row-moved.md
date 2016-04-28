@@ -2,7 +2,7 @@
 class: api
 icon: value
 layout: docs
-permalink: /api/ROW_MOVED.html
+permalink: /docs/api/ROW_MOVED.html
 title: ROW_MOVED
 ---
 
