@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 gem "autoprefixer-rails", "~> 6.3.6"
+gem "dotenv", "~> 2.1.1"
 gem "jekyll", "~> 3.1.2"
 gem "jekyll-assets", "~> 2.1.3"
 gem "jekyll-paginate", "~> 1.1.0"

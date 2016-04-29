@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines }}{% else %}{{ site.description }}{% endif %}" />
 
+    {% if site.metrika %}{% include metrika.html %}{% endif %}
+
     {% stylesheet app %}
   </head>
 
