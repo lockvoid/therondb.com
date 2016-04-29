@@ -7,6 +7,22 @@ body.blog {
 }
 
 body.blog.index {
+  section.updates {
+    margin: 30px 0 50px;
+
+    form {
+      display: flex;
+
+      input {
+        flex: 1;
+      }
+
+      button {
+        margin-left: 10px;
+      }
+    }
+  }
+
   ol.posts {
     list-style-type: none;
     margin: 0;

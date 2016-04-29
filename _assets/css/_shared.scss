@@ -156,6 +156,71 @@ pre {
   }
 }
 
+input[type="text"], input[type="search"], input[type="email"], input[type="password"] {
+  -webkit-appearance: textfield;
+  background-color: white;
+  border-radius: 2px;
+  border: 0;
+  border: 1px solid darken(white, 20);
+  font-family: OpenSans, $fonts;
+  font-size: 16px;
+  padding: 0 10px;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: color(white b(50%));
+  }
+}
+
+input[type="button"], button, a.button {
+  align-items: center;
+  border-radius: 2px;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  font-family: OpenSans, $fonts;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  justify-content: center;
+  min-width: 90px;
+  padding: 0;
+  padding: 0px 13px;
+  text-align: center;
+  text-transform: uppercase;
+
+  &:focus {
+    outline: none;
+  }
+
+  &.raised {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    color: rgba(white, .85);
+    transition: color .1s;
+
+    &:hover {
+      color: white;
+    }
+
+    &:active, &:active:hover {
+      color: rgba(white, .85);
+      transition: none;
+    }
+
+    &.primary {
+      background-color: $color-primary;
+
+      &:active, &:active:hover {
+        background-color: darken($color-primary, 5);
+      }
+    }
+  }
+}
+
+
 spinner {
   display: flex;
   justify-content: center;
