@@ -29,7 +29,7 @@ function scrollTo(to, duration, callback) {
 }
 
 (function() {
-  const nodes = $('aside.main section.tree h4');
+  const nodes = $('aside.navigation section.tree h4');
 
   nodes.forEach(node => {
     node.addEventListener('click', event => node.parentElement.classList.toggle('active'));

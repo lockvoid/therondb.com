@@ -1,9 +1,9 @@
 ---
-layout: docs
+class: docs api
 icon: interface
-class: api
-title: TheronAction
+layout: doc
 permalink: /docs/api/TheronAction.html
+title: TheronAction
 ---
 
 <header class="summary" markdown="1">

@@ -1,12 +1,20 @@
-description: "Learn about building realtime apps with Theron."
-
-gems:
-  - jekyll-assets
+description: "Learn about building realtime applications with Theron."
 
 markdown: kramdown
 
+permalink: /blog/:title.html
+
+paginate: 5
+paginate_path: /blog/page/:num.html
+
+gems:
+  - jekyll-assets
+  - jekyll-paginate
+
 collections:
   docs:
+    output: true
+  posts:
     output: true
 
 assets:

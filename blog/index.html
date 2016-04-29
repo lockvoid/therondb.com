@@ -1,0 +1,40 @@
+---
+class: blog index
+layout: post
+title: Learn about building realtime applications with Theron
+---
+
+<ol class="posts">
+{% for post in paginator.posts %}
+  <li class="post">
+    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+
+    <p>{{ post.description }}</p>
+
+    <div class="meta">
+      <div class="author">{{ post.author | markdownify | remove: '<p>' | remove: '</p>' }}</div>
+      <date>{{ post.date | date: '%B %d, %Y' }}</date>
+    </div>
+  </li>
+{% endfor %}
+</ol>
+
+{% if paginator.total_pages > 1 %}
+<ul class="paginator">
+  <li class="prev">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}">Newer</a>
+  {% else %}
+    <span>Newer</span>
+  {% endif %}
+  </li>
+
+  <li class="next">
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}">Older</a>
+  {% else %}
+    <span>Older</span>
+  {% endif %}
+  </li>
+</ul>
+{% endif %}

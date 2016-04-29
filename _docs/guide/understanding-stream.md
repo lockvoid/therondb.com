@@ -1,8 +1,8 @@
 ---
-layout: docs
-class: guide streaming
-title: Understanding Stream
+class: docs guide streaming
+layout: doc
 permalink: /docs/guide/understanding-stream.html
+title: Understanding Stream
 ---
 
 ## Reactive Nature

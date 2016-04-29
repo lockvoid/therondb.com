@@ -1,7 +1,7 @@
 ---
-class: api
+class: docs api
 icon: value
-layout: docs
+layout: doc
 permalink: /docs/api/COMMIT_TRANSACTION.html
 title: COMMIT_TRANSACTION
 ---

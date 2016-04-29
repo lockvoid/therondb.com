@@ -1,11 +1,15 @@
 <header class="main">
-  <wrapper>
+  <wrapper class="wide">
     <a href="/" class="logo">{% asset_source 'theron.svg' %}</a>
 
     <nav class="desktop">
       <ul>
         <li>
-          <a href="/docs" class="active">Docs</a>
+          <a href="/blog" class="{% if page.url contains '/blog' %}active{% endif %}">Blog</a>
+        </li>
+
+        <li>
+          <a href="/docs" class="{% if page.url contains '/docs' %}active{% endif %}">Docs</a>
         </li>
 
         <li>

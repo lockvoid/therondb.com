@@ -1,7 +1,7 @@
 ---
-class: api constants
+class: docs api constants
 icon: value
-layout: docs
+layout: doc
 permalink: /docs/api/ROW_ADDED.html
 title: ROW_ADDED
 ---

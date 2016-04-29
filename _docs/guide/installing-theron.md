@@ -1,6 +1,6 @@
 ---
-class: guide installing
-layout: docs
+class: docs guide installing
+layout: doc
 permalink: /docs/guide/installing-theron.html
 title: Installing Theron
 ---

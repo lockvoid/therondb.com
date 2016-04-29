@@ -1,6 +1,6 @@
 ---
-class: guide quickstart
-layout: docs
+class: docs guide quickstart
+layout: doc
 permalink: /docs/quickstart.html
 title: Quickstart
 ---

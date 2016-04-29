@@ -1,7 +1,7 @@
 ---
-class: api
+class: docs api
 icon: value
-layout: docs
+layout: doc
 permalink: /docs/api/ROW_MOVED.html
 title: ROW_MOVED
 ---

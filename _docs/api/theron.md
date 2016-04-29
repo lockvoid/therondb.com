@@ -1,7 +1,7 @@
 ---
-class: api
+class: docs api
 icon: class
-layout: docs
+layout: doc
 permalink: /docs/api/Theron.html
 title: Theron
 ---

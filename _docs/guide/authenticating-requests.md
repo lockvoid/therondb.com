@@ -1,6 +1,6 @@
 ---
-class: guide authenticating
-layout: docs
+class: docs guide authenticating
+layout: doc
 permalink: /docs/guide/authenticating-requests.html
 title: Authenticating Requests
 ---

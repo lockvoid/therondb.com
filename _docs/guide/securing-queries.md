@@ -1,6 +1,6 @@
 ---
-class: guide securing
-layout: docs
+class: docs guide securing
+layout: doc
 permalink: /docs/guide/securing-queries.html
 title: Securing Queries
 ---
