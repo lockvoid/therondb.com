@@ -60,8 +60,8 @@ transform an incoming data, and fetch the result back later using the API.
 
 ## Open Source
 
-At Theron, we enjoy open-source! We released Figure under [the MIT License](https://github.com/rosendi/figure/blob/master/LICENSE)
-The development stack is React, Redux, and Node and Figure itself is written in
+At Theron, we enjoy open-source! We released Figure under [the MIT License](https://github.com/rosendi/figure/blob/master/LICENSE).
+The development stack is React, Redux, and Node; Figure itself is written in
 TypeScript. Check [the feature issues](https://github.com/rosendi/figure/issues?q=is%3Aissue+is%3Aopen+label%3A%22type%3A+feature%22)
 to learn about our plans, and send pull requests with new features. We really
 appreciate it.
