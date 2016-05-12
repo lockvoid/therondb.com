@@ -126,5 +126,5 @@ Read [the securing guide](./guide/securing-queries.html).
 
 - Read [the development guides](./guide/installing-theron.html).
 - View [the JavaScript Api](./api/Theron.html).
-- Watch [the screencasts](/home#screencasts) where we build a chat application and check [its code](https://github.com/rosendi/rechat).
+- Watch [the screencasts](/home#screencasts) where we build a chat application and check [its code](https://github.com/therondb/rechat).
 - Explore a complete, production-ready, and open-sourced application [Figure](https://figure-app.com).

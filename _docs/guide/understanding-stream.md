@@ -234,7 +234,7 @@ const subscription = theron.watch('/todos').subscribe(
 {% endhighlight %}
 
 > In the production, you would use something like [Immutable.js](https://facebook.github.io/immutable-js)
-to deal with arrays. Check [the complete example](https://github.com/rosendi/figure/blob/master/app/client/utils/syncronize_array.ts) of a reducer.
+to deal with arrays. Check [the complete example](https://github.com/therondb/figure/blob/master/app/client/utils/syncronize_array.ts) of a reducer.
 
 ### 2. Rename A(1) to D(1)
 

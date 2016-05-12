@@ -71,6 +71,6 @@ Then response:
 
 At Theron, we strive to be awesome as much and as often as possible. We are
 constantly working to improve all of these scenarios and have several API
-enhancements in the pipeline. The documentation is [open-sourced](https://github.com/rosendi/theron-docs).
+enhancements in the pipeline. The documentation is [open-sourced](https://github.com/therondb/therondb.com).
 If you find a mistake in the docs or want to improve something, please send a
 pull request.

@@ -28,7 +28,7 @@ release.
 
 ## Real World Example
 
-Last but not least, we [open sourced](https://github.com/rosendi/figure) a
+Last but not least, we [open sourced](https://github.com/therondb/figure) a
 complete, production-ready application [Figure](https://figure-app.com) powered
 by Theron. It’s a handy companion for static sites that gives developers and
 designers - tech-savvy individuals like you - a place to point form submissions,
@@ -39,6 +39,6 @@ redirecting them to another page.
 
 At Theron, we strive to be awesome as much and as often as possible. We are
 constantly working to improve all of these scenarios and have several API
-enhancements in the pipeline. The documentation is [open-sourced](https://github.com/rosendi/therondb.com).
+enhancements in the pipeline. The documentation is [open-sourced](https://github.com/therondb/therondb.com).
 If you find a mistake or want to improve something, please send a pull request.
 We really appreciate it.

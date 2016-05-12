@@ -10,7 +10,7 @@ title: Introducing Figure
 # Introducing Figure
 
 We’re excited to announce the launch of [Figure](https://figure-app.com): an
-[open-source](https://github.com/rosendi/figure) application that makes putting
+[open-source](https://github.com/therondb/figure) application that makes putting
 forms on static sites fast and easy; no more evil iFrame and CSS overrides.
 Build forms with plain HTML and JavaScript for additional features.
 
@@ -60,9 +60,9 @@ transform an incoming data, and fetch the result back later using the API.
 
 ## Open Source
 
-At Theron, we enjoy open-source! We released Figure under [the MIT License](https://github.com/rosendi/figure/blob/master/LICENSE).
+At Theron, we enjoy open-source! We released Figure under [the MIT License](https://github.com/therondb/figure/blob/master/LICENSE).
 The development stack is React, Redux, and Node; Figure itself is written in
-TypeScript. Check [the feature issues](https://github.com/rosendi/figure/issues?q=is%3Aissue+is%3Aopen+label%3A%22type%3A+feature%22)
+TypeScript. Check [the feature issues](https://github.com/therondb/figure/issues?q=is%3Aissue+is%3Aopen+label%3A%22type%3A+feature%22)
 to learn about our plans, and send pull requests with new features. We really
 appreciate it.
 
