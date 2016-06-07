@@ -12,11 +12,22 @@
 - title: JavaScript API
   items:
   - /docs/api/Theron.html
-  - /docs/api/TheronAction.html
+  - /docs/api/BaseAction.html
+  - /docs/api/BaseRow.html
+  - /docs/api/TheronAppOptions.html
+  - /docs/api/TheronAsideEffects.html
+  - /docs/api/TheronDataArtefact.html
+  - /docs/api/TheronRescueOptions.html
+  - /docs/api/TheronRowArtefact.html
+  - /docs/api/TheronSecureOptions.html
+  - /docs/api/CONNECT.html
+  - /docs/api/DISCONNECT.html
+  - /docs/api/OK.html
+  - /docs/api/ERROR.html
+  - /docs/api/BEGIN_TRANSACTION.html
+  - /docs/api/COMMIT_TRANSACTION.html
+  - /docs/api/ROLLBACK_TRANSACTION.html
   - /docs/api/ROW_ADDED.html
   - /docs/api/ROW_CHANGED.html
   - /docs/api/ROW_MOVED.html
   - /docs/api/ROW_REMOVED.html
-  - /docs/api/BEGIN_TRANSACTION.html
-  - /docs/api/COMMIT_TRANSACTION.html
-  - /docs/api/ROLLBACK_TRANSACTION.html
