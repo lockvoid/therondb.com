@@ -117,7 +117,7 @@ body.docs.index {
   height: 100%;
 }
 
-body.guide.streaming {
+body.guide.streaming main {
   ul.lifecycle {
     display: flex;
     list-style-type: none;
@@ -273,7 +273,7 @@ body.guide.streaming {
   }
 }
 
-body.api {
+body.api main {
   header.summary {
     h1 {
       border-bottom: 2px solid $color-primary;
@@ -358,3 +358,45 @@ body.api {
     }
   }
 }
+
+body.docs.changelog main {
+  ul {
+    list-style-type: none;
+
+    li + li {
+      margin-top: 10px;
+    }
+
+    li {
+      align-items: center;
+      display: flex;
+
+      div.label {
+        background: red;
+        border-radius: 2px;
+        color: white;
+        display: block;
+        font-size: 11px;
+        font-weight: 500;
+        padding: 3px 7px;
+        text-align: center;
+        text-transform: uppercase;
+        width: 100px;
+
+        &.feature {
+          background-color: #31b0d5;
+        }
+
+        &.fixed {
+          background-color: #449d44;
+        }
+      }
+
+      p {
+        margin: 0 0 0 10px;
+      }
+    }
+  }
+}
+
+
