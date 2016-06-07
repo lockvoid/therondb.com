@@ -1,16 +1,18 @@
 ---
 class: docs guide streaming
 layout: doc
-permalink: /docs/guide/understanding-stream.html
-title: Understanding Stream
+permalink: /docs/guide/integrating-database.html
+title: Integrating Database
 ---
 
-## Reactive Nature
+# Integrating Database
 
 Theron works with plain SQL queries and uses all of the advantages of SQL
 databases. It’s able to understand which data is important for clients,
 depending on the query to the database, and sends only payloads: the small
 artefacts of data needed in order to construct an entire dataset.
+
+## Reactive Nature
 
 Theron’s client library is built on top of [RxJS](http://reactivex.io/rxjs/).
 Data stored in your database is streamed by creating an asynchronous emitter:
@@ -20,18 +22,19 @@ in sync with your database.
 > Theron only reads data: it doesn’t write to your database.
 
 Let’s consider Theron’s stream through a lifecycle of the first three todos
-ordered by its name.
+ordered by its name. But before that connect Theron to your [Postgres](http://postgresql.org)
+database by entering it credentials in the application dashboard. If the
+credentials are correct, Theron will setup the database.
 
 ## Server Side
 
 Since Theron works with SQL queries, your server responses should be a JSON
-string, that includes the `queryText` property with a plain SQL query for
-fetching todos, instead of the todos themselves. For example, the server
-response of the first three todos ordered by the name for the `/todos` resource
-could be:
+string, that includes the `query` property with a plain SQL query for fetching
+todos, instead of the todos themselves. For example, the server response of the
+first three todos ordered by the name for the `/todos` resource could be:
 
 {% highlight json %}
-{ "queryText": "SELECT * FROM todos ORDER BY name LIMIT 3" }
+{ "query": "SELECT * FROM todos ORDER BY name LIMIT 3" }
 {% endhighlight %}
 
 > You can use any backend frameworks such as Express, Rails, Django to declare
@@ -47,14 +50,14 @@ import { Theron } from 'theron';
 const theron = new Theron('https://therondb.com', { app: 'YOUR_APP_NAME' });
 {% endhighlight %}
 
-Creating a reference establishes a WebSocket connection to Theron’s server but
-doesn’t begin downloading data. Data is not fetched until a stream subscription
-is created. Once the data is retrieved, it stays cached locally until the last
+Creating a reference DOESN'T establish a WebSocket connection to Theron’s server
+and DOESN’T begin downloading data. The connection IS opened and data IS fetched
+once a stream subscription is created. It stays cached locally until the last
 subscription is disposed of.
 
 Now, we can stream data by creating a new subscription. For that, Theron
 provides the [`watch()`](../api/Theron.html#watch) method, which fetches the SQL
-query from your server, then queries your database and emits the actions needed
+query from your server, then queries your database and emits the artefacts needed
 in order to construct the dataset.
 
 {% highlight javascript linenos %}
@@ -63,8 +66,8 @@ const subscription = theron.watch('/todos').subscribe(
     console.log(action);
   },
 
-  error => {
-    console.log(error);
+  err => {
+    console.log(err);
   },
 
   () => {
@@ -79,12 +82,9 @@ Later, when you don’t need that data anymore, unsubscribe:
 subscription.unsubscribe();
 {% endhighlight %}
 
-> Read [the RxJSx documentation](http://reactivex.io/documentation/observable.html)
-> about reactive programming.
+## Theron Row Artefact
 
-## Theron Action Payload
-
-[Theron’s action payload](../api/TheronAction.html) is an instruction on how to
+[Theron’s row artefact](../api/TheronRowArtefact.html) is an instruction on how to
 react to data changes. It’s a plain JavaScript object with a data artefact
 contains the `type` and `payload` property. For now, just check the possible
 action types, we’ll introduce each action type later:
@@ -97,7 +97,7 @@ action types, we’ll introduce each action type later:
 - [`COMMIT_TRANSACTION`](../api/COMMIT_TRANSACTION.html) - dataset is fresh.
 - [`ROLLBACK_TRANSACTION`](../api/ROLLBACK_TRANSACTION.html) - dataset is invalid.
 
-These action types can be imported:
+These action types can be imported as well:
 
 {% highlight javascript %}
 import { ROW_ADDED, ROW_CHANGED, ROW_MOVED, ROW_REMOVED, etc... } from 'theron';
@@ -185,8 +185,8 @@ const subscription = theron.watch('/todos').subscribe(
     }
   },
 
-  error => {
-    console.log(error);
+  err => {
+    console.log(err);
   },
 
   () => {

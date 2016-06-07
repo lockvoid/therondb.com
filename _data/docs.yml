@@ -3,9 +3,11 @@
 - title: Guide
   items:
   - /docs/guide/installing-theron.html
-  - /docs/guide/understanding-stream.html
+  - /docs/guide/broadcasting-data.html
+  - /docs/guide/integrating-database.html
   - /docs/guide/authenticating-requests.html
-  - /docs/guide/securing-queries.html
+  - /docs/guide/securing-channels.html
+  - /docs/guide/error-handling.html
 
 - title: JavaScript API
   items:

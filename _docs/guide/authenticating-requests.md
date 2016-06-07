@@ -5,16 +5,24 @@ permalink: /docs/guide/authenticating-requests.html
 title: Authenticating Requests
 ---
 
-## Requests Lifecycle
+# Authenticating Requests
 
 Most applications need to know the identity of a user. Knowing a user’s identity
 allows an application to provide a customized experience and grant them
 permissions to access their data. The process of proving a user’s identity is
 called authentication.
 
-Each time you create a new streaming subscription, Theron sends a new request to
-your server, unless the SQL query isn't cached. To append additional
-authentication data to those requests, Theron provides the
+## Requests Lifecycle
+
+Theron sends requests to your server in the following cases:
+
+- Each time you create a new database streaming subscription using [`watch()`](../api/Theron.html#watch),
+  Theron sends a new request to your server, unless the SQL query isn't cached.
+
+- Each time you subscribe to a channel using [`join()`](../api/Theron.html#join),
+  Theron fetches a signature from your server unless your application in the development mode.
+
+To append authentication data to those requests, Theron provides the
 [`setAuth()`](../api/Theron.html#setAuth) method.
 
 ## Authenticating Requests
