@@ -5,15 +5,10 @@ permalink: /docs/guide/installing-theron.html
 title: Installing Theron
 ---
 
-## Create an Account
+# Installing Theron
 
 First, [sign up for a free account](/signup). Create a new application by giving
-it a unique name and then connect Theron to your [Postgres](http://postgresql.org)
-database by entering it credentials. If the credentials are correct, Theron will
-setup the database triggers.
-
-> Currently, Theron only works with Postgres. We're working on the adapters for
-> Mongo and other popular databases.
+it a unique name.
 
 ## Install Theron
 
@@ -23,7 +18,7 @@ install it via [npm](https://www.npmjs.com/package/theron) or [jspm](http://jspm
 -	Inject the script directly from our CDN:
 
 {% highlight html %}
-<script src="//cdn.therondb.com/bundles/0.1.4/theron.umd.js"></script>
+<script src="//cdn.therondb.com/bundles/0.2.1/theron.umd.js"></script>
 {% endhighlight %}
 
 -	Install it via npm for Node.js:
@@ -51,5 +46,5 @@ use the library in your application, import it using ES6 syntax:
 import { Theron } from 'theron';
 {% endhighlight %}
 
-Now we’re ready to start streaming data from your database with Theron, which
-we’ll cover in [the next section](./understanding-stream.html).
+Now we’re ready to start broadcasting data with Theron, which we’ll cover in
+[the next section](./broadcasting-data.html).
