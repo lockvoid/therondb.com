@@ -10,7 +10,7 @@ title: Theron
 
 # Theron (class)
 
-A basic class for working with Theron.
+A basic class for working with Theron inherited from Rx.AnonymousSubject.
 
 {% highlight javascript %}
 import { Theron } from 'theron';
@@ -18,45 +18,61 @@ import { Theron } from 'theron';
 
 ## Static Methods Summary
 
-- [sign](#sign)(query: string, secret: string): string
+- [sign](#sign)(data: string, secret: string): string
 
-    Generates an HMAC SHA256 hex digest for a query signature.
+    Generates an HMAC SHA256 hex digest for a given data.
 
 ## Constructor Summary
 
-- [constructor](#constructor)(endpoint: string, options: { app: string })
+- [constructor](#constructor)(url: string, options: [TheronAppOptions](./TheronAppOptions))
 
     Constructs a new Theron reference for an application from an endpoint.
 
 ## Instance Methods Summary
 
-- [watch](#watch)\<[TheronAction](./TheronAction.html)\<T\>\>(query: string, params?: Object): Observable<[TheronAction](./TheronAction.html)\<T\>\>
+- [isConnected](#isConnected)(): boolean
 
-    Creates an observable that streams data changes for a particular SQL query.
+    Returns true if there is at least one active subscription and the connection is established.
 
-- [setAuth](#setAuth)(auth: { params?: Object, headers?: Object }): void
+- [setAuth](#setAuth)(auth: [TheronAuthOptions](./TheronAuthOptions)): void
 
-    Appends authentication credentials to be sent while fetching SQL queries from your server.
+    Appends credentials to be sent to your server while fetching SQL queries or channel signatures.
+
+- [request](#request)\<T, R\>(type: string, data?: T, options?: [TheronRescueOptions](./TheronRescueOptions)): Observable\<[TheronTransport](./TheronTransport)\<R\>\>
+
+    Sends a request to the remote procedure call system via a WebSocket connection.
+
+- [publish](#publish)\<T\>(channel: string, payload?: T, options?: [TheronRescueOptions](./TheronRescueOptions)): Observable\<[TheronTransport](./TheronTransport)\<{}\>\>
+
+    Broadcasts a payload to all subscribers of a channel.
+
+- [join](#join)\<T\>(channel: string, options?: [TheronRescueOptions](./TheronRescueOptions) & [TheronSecureOptions](./TheronSecureOptions) & [TheronAsideEffects](./TheronAsideEffects)): Observable\<[TheronDataArtefact](./TheronDataArtefact)\<T\>\>
+
+    Creates an observable that streams data payloads for a particular channel.
+
+- [watch](#watch)\<T extends [BaseRow](./BaseRow)>(url: string, params?: any, options?: [TheronRescueOptions](./TheronRescueOptions) & [TheronAsideEffects](./TheronAsideEffects)): Observable\<[TheronRowArtefact](./TheronRowArtefact)\<T\>\>
+
+    Creates an observable that streams data changes for a particular SQL query fetched from the URL.
 
 </header>
 
 <section class="details" markdown="1">
 
-### static sign(query: string, secret: string): string {#sign}
+### static sign(data: string, secret: string): string {#sign}
 
-Generates an HMAC SHA256 hex digest signature for an SQL query. By default, as a
-new application in development mode, Theron accepts any SQL queries. To enable
-the signing mechanism, go to the application dashboard and uncheck the
+Generates an HMAC SHA256 hex digest signature for a given data. By default, as a
+new application in development mode, Theron accepts any incoming queries. To
+enable the signing mechanism, go to the application dashboard and uncheck the
 development status.
 
 See [the securing guide](../guide/securing-queries.html) for more details.
 
 #### Params
 
-- **query**
+- **data**
 
     Type: string, required <br>
-    A plain SQL query to sign in.
+    A plain data to sign in.
 
 - **secret**
 
@@ -66,7 +82,7 @@ See [the securing guide](../guide/securing-queries.html) for more details.
 #### Returns
 
 Type: string <br>
-A hex digest signature for an SQL query.
+A hex digest signature for a given data.
 
 #### Example
 
@@ -77,7 +93,7 @@ console.log(Theron.sign('SELECT * FROM todos ORDER BY name LIMIT 3', '79bf7c1df9
 // 0047bcd34d5807692566c1a587748ea193b7daec13b5b07c9b3fca0b2edc2411
 {% endhighlight %}
 
-### constructor(endpoint: string, options: { app: string }) {#constructor}
+### constructor(url: string, options: [TheronAppOptions](./TheronAppOptions)) {#constructor}
 
 Constructs a new Theron reference from a Theron endpoint.
 
@@ -86,11 +102,11 @@ Constructs a new Theron reference from a Theron endpoint.
 - **endpoint**
 
     Type: string, required <br>
-    The absolute, HTTPS URL of a Theron endpoint: `https://therondb.com`.
+    An absolute, HTTPS URL of a Theron endpoint: `https://therondb.com`.
 
 - **options**
 
-    Type: object, required <br>
+    Type: [TheronAppOptions](./TheronAppOptions), required <br>
     An object with a required app property, which is an application name you set in the application dashboard.
 
 #### Example
@@ -101,7 +117,212 @@ import { Theron } from 'theron';
 const theron = new Theron('https://therondb.com', { app: 'YOUR_APP_NAME' });
 {% endhighlight %}
 
-### watch\<[TheronAction](./TheronAction.html)\<T\>\>(query: string, params?: Object): Observable\<[TheronAction](./TheronAction.html)\<T\>\> {#watch}
+### isConnected(): boolean {#isConnected}
+
+Returns true if there is at least one active subscription and the connection is established.
+
+#### Returns
+
+Type: boolean <br>
+An instance connection state.
+
+### setAuth(auth: [TheronAuthOptions](./TheronAuthOptions)): void {#setAuth}
+
+Appends authentication credentials to be sent while fetching SQL queries or
+channel signatures from your server. It sets custom headers, or additional
+params as well.
+
+See [the authentication guide](../guide/authenticating-requests.html) for more details.
+
+#### Params
+
+- **auth**
+
+    Type: [TheronAuthOptions](./TheronAuthOptions), required <br>
+    An object with the `headers` or `params` properties.
+
+#### Example
+
+{% highlight javascript linenos %}
+import { Theron } from 'theron';
+
+const theron = new Theron('https://therondb.com', { app: 'YOUR_APP_NAME' });
+
+theron.setAuth({
+  headers: { 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.VGhlcm9u.twb3AZHNU4t_7KSyJsyNCW6JlkznjFeec0yhXsMspsE' }
+});
+
+theron.watch('/todos').subscribe(...); // the headers have been sent to your server
+{% endhighlight %}
+
+### request\<T, R\>(type: string, data?: T, options?: [TheronRescueOptions](./TheronRescueOptions)): Observable\<[TheronTransport](./TheronTransport)\<R\>\> {#request}
+
+Sends a request to the RPC via a WebSocket connection. It is reserved for the
+next Theron release where you'll be able to send request to your server via
+Theron's network.
+
+#### Params
+
+- **type**
+
+    Type: string, required <br>
+    An instruction to Theron.
+
+- **data**
+
+    Type: object, optional <br>
+    An optional object with additional data to be sent while performing request to Theron.
+
+- **options**
+
+    Type: [TheronRescueOptions](./TheronRescueOptions), optional <br>
+    An optional object with the `retry` property (set to `true` by default) which forces Theron to exponentially retry failed requests.
+
+#### Returns
+
+Type: Observable\<[TheronTransport](./TheronTransport)\<R\>\> <br>
+An observable containing server response that shares a single subscription to
+the underlying sequence containing the response. Check the `publishLast()`
+method of RxJS for more details.
+
+#### Example
+
+For example the publish method is a wrapper of the request method:
+
+{% highlight javascript linenos %}
+import { Theron } from 'theron';
+
+const theron = new Theron('https://therondb.com', { app: 'YOUR_APP_NAME' });
+
+theron.request('TN:PUBLISH', { channel: 'YOUT_CHANNEL_NAME', payload: { message: 'Hello, Theron!', secret: 'YOUT_SECRET_KEY' } }).subscribe(
+  res => {
+    console.log(res);
+  },
+
+  err => {
+    console.log(err);
+  },
+
+  () => {
+   console.log('done');
+  }
+);
+
+{% endhighlight %}
+
+### publish\<T\>(channel: string, payload?: T, options?: [TheronRescueOptions](./TheronRescueOptions)): Observable\<[TheronTransport](./TheronTransport)\<{}\>\> {#publish}
+
+Broadcasts a payload to all subscribers of a channel. Right now you can
+broadcasts only from the server side since the method requires a secret key.
+This is a temporary limitation.
+
+See [the channels guide](../guide/broadcasting-data) for more details.
+
+#### Params
+
+- **channel**
+
+    Type: string, required <br>
+    A channel name.
+
+- **payload**
+
+    Type: object, optional <br>
+    An optional object with data to be sent to the channel subscribers.
+
+- **options**
+
+    Type: [TheronRescueOptions](./TheronRescueOptions), optional <br>
+    An optional object with the `retry` property (set to `true` by default) which forces Theron to exponentially retry failed requests.
+
+#### Returns
+
+Type: Observable\<[TheronTransport](./TheronTransport)\<R\>\> <br>
+An observable containing server response.
+
+#### Example
+
+{% highlight javascript linenos %}
+import { Theron } from 'theron';
+
+const theron = new Theron('https://therondb.com', { app: 'YOUR_APP_NAME', secret: 'YOUR_SECRET_KEY' /* imporant */ });
+
+theron.publish('airport.delays', { delay: true, /* other excerpts */ } }).subscribe(
+  res => {
+    console.log(res);
+  },
+
+  err => {
+    console.log(err);
+  },
+
+  () => {
+   console.log('done');
+  }
+);
+
+{% endhighlight %}
+
+### join\<T\>(channel: string, options?: [TheronRescueOptions](./TheronRescueOptions) & [TheronSecureOptions](./TheronSecureOptions) & [TheronAsideEffects](./TheronAsideEffects)): Observable\<[TheronDataArtefact](./TheronDataArtefact)\<T\>\> {#join}
+
+Creates an observable that streams messages for a particular channel. Channel
+names should only include lower and uppercase letters, numbers and the following
+punctuation `-=.,:_@`.
+
+In the production mode you also have to specify the `sign' property, i.e. the
+endpoint where Theron can fetch a signature for the channel in order to create a
+subscribtion.
+
+See [the channels guide](../guide/broadcasting-data) for more details.
+
+#### Params
+
+- **channel**
+
+    Type: string, required <br>
+    A channel name.
+
+- **options**
+
+    Type: [TheronRescueOptions](./TheronRescueOptions) & [TheronAsideEffects](./TheronAsideEffects), optional <br>
+    An optional object with the `retry` property (set to `true` by default) which
+    forces Theron to exponentially retry failed requests, a signature endpoint
+    property `sign` and aside effects such as the `onSubscribe` and `onUnsubscribe` observers.
+
+#### Returns
+
+Type: Observable\<[TheronRowArtefact](./TheronRowArtefact)\<T\> <br>
+An observable sequence containing messages emitted by the `publish()` method.
+
+#### Example
+
+{% highlight javascript linenos %}
+import { Theron } from 'theron';
+
+const theron = new Theron('https://therondb.com', { app: 'YOUR_APP_NAME' });
+
+const channel = theron.join('airport.delays').subscribe(
+  status => {
+    console.log(status);
+  },
+
+  err => {
+    console.log(err);
+  },
+
+  () => {
+    console.log('done');
+  }
+);
+{% endhighlight %}
+
+Later, when you don't need that data anymore, unsubscribe:
+
+{% highlight javascript %}
+channel.unsubscribe();
+{% endhighlight %}
+
+### watch\<T extends [BaseRow](./BaseRow)>(url: string, params?: any, options?: [TheronRescueOptions](./TheronRescueOptions) & [TheronAsideEffects](./TheronAsideEffects)): Observable\<[TheronRowArtefact](./TheronRowArtefact)\<T\>\> {#watch}
 
 Creates an observable that streams data changes for a particular SQL query. It
 fetches the SQL query from your server, then queries your database and emits the
@@ -119,18 +340,27 @@ See [the streaming guide](../guide/understanding-stream.html) for more details.
 
 - **params**
 
-    Type: object, optional <br>
-    An optional object with additional data to be sent while fetching SQL queries from your server.
+    Type: any, optional <br>
+    An optional object with additional params to generate a SQL query on your server.
+
+- **options**
+
+    Type: [TheronRescueOptions](./TheronRescueOptions) & [TheronAsideEffects](./TheronAsideEffects), optional <br>
+    An optional object with the `retry` property (set to `true` by default)
+    which forces Theron to exponentially retry failed requests and aside effects
+    such as the `onSubscribe` and `onUnsubscribe` observers.
 
 #### Returns
 
-Type: Observable\<[TheronAction](./TheronAction.html)\<T\>\> <br>
-An observable sequence containing TheronAction objects.
+Type: Observable\<[TheronRowArtefact](./TheronRowArtefact)\<T\> <br>
+An observable sequence containing data artefacts.
 
 #### Example
 
 {% highlight javascript linenos %}
 import { Theron, ROW_ADDED } from 'theron';
+
+const theron = new Theron('https://therondb.com', { app: 'YOUR_APP_NAME' });
 
 var todos = [];
 
@@ -143,8 +373,8 @@ const subscription = theron.watch('/todos').subscribe(
     }
   },
 
-  error => {
-    console.log(error);
+  err => {
+    console.log(err);
   },
 
   () => {
@@ -157,34 +387,6 @@ Later, when you don't need that data anymore, unsubscribe:
 
 {% highlight javascript %}
 subscription.unsubscribe();
-{% endhighlight %}
-
-### setAuth(auth: { params?: Object, headers?: Object }): void {#setAuth}
-
-Appends authentication credentials to be sent while fetching SQL queries from
-your server. It sets custom headers, or additional params as well.
-
-See [the authentication guide](../guide/authenticating-requests.html) for more details.
-
-#### Params
-
-- **auth**
-
-    Type: object, required <br>
-    An object with the `headers` or `params` properties.
-
-#### Example
-
-{% highlight javascript linenos %}
-import { Theron } from 'theron';
-
-const theron = new Theron('https://therondb.com', { app: 'YOUR_APP_NAME' });
-
-theron.setAuth({
-  headers: { 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.VGhlcm9u.twb3AZHNU4t_7KSyJsyNCW6JlkznjFeec0yhXsMspsE' }
-});
-
-theron.watch('/todos').subscribe(...); // the headers have been sent to your server
 {% endhighlight %}
 
 </section>
