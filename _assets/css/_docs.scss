@@ -3,6 +3,24 @@ body.docs {
     padding: 120px 25px 50px;
   }
 
+  main {
+    h1 {
+      border-bottom: 2px solid $color-primary;
+    }
+
+    ul {
+      margin: 15px 0;
+      list-style-position: inside;
+      list-style-type: disc;
+    }
+
+    ol {
+      margin: 15px 0;
+      list-style-position: inside;
+      list-style-type: decimal;
+    }
+  }
+
   aside.navigation {
     flex: 1;
     max-width: 300px;

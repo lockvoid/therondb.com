@@ -1,0 +1,197 @@
+---
+class: pages home
+layout: base
+---
+
+<main class="home">
+  <section class="intro">
+    <wrapper>
+      <h1>Reactive storage for realtime apps.</h1>
+      <h3>Build modern apps and grow successful businesses while avoiding sync pitfalls.</h3>
+
+      <a href="/signup" class="signup">
+        <div>Sign Up for Beta</div>
+      </a>
+    </wrapper>
+  </section>
+
+  <section class="hexagons">
+    <wrapper class="narrow">
+      <h2>Distributed realtime experience.</h2>
+
+      <p>Theron helps you quickly build apps with realtime updates or migrate existing ones. Our infrastructure handles the tough job of managing realtime features, while you dedicate energy to what really matters for your business’ success: the user experience.</p>
+
+      <p>Theron helps you fit the modern app requirements, which have changed dramatically in recent years. Briefly, users are happy when they don't need hit refresh to know what's going on, or - worse - reload the app when something goes wrong.</p>
+    </wrapper>
+
+    <div class="canvas">
+      <ul class="streams">
+        <li stream="1"><i></i></li>
+        <li stream="2"><i></i></li>
+        <li stream="3"><i></i></li>
+
+        <li class="theron">
+          <i anchor="1"></i>
+          <i anchor="2"></i>
+          <i anchor="3"></i>
+        </li>
+      </ul>
+
+      <div class="hexagon customers">
+        {% asset_source 'hexagon.svg' %}
+
+        <div class="viewport">
+          <h5>Customers</h5>
+        </div>
+      </div>
+
+      <div class="hexagon theron">
+        {% asset_source 'hexagon.svg' %}
+
+        <div class="viewport">
+          <h5>Theron</h5>
+        </div>
+      </div>
+
+      <div class="hexagon business">
+        {% asset_source 'hexagon.svg' %}
+
+        <div class="viewport">
+          <h5>Business</h5>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="audiences">
+    <wrapper class="narrow">
+      <h2>
+        <span>Theron helps</span>
+
+        {% assign excerpts = "" | split: "|" %}
+        {% assign excerpts = excerpts | push: "SaaS developers easily build collaborative features" %}
+        {% assign excerpts = excerpts | push: "game developers easily build multiplayer gameplay" %}
+        {% assign excerpts = excerpts | push: "media companies easily distribute fresh news" %}
+        {% assign excerpts = excerpts | push: "social networks easily build realtime interactions" %}
+        {% assign excerpts = excerpts | push: "IoT easily communicate across devices" %}
+        {% assign excerpts = excerpts | push: "taxi services easily connect riders and drivers" %}
+
+        <span class="typing" excerpts="{{ excerpts | join: ".|" }}."></span>
+      </h2>
+    </wrapper>
+  </section>
+
+  <section class="channels">
+    <wrapper class="narrow">
+      <h2>Thousands of reactive channels on a single persistent connection.</h2>
+
+      <p>Channels are a fundamental concept in Theron. Channels are a flexible way to broadcast data across segments of your users. Theron utilizes a Pub/Sub pattern for data streaming, which lets you push data to global audiences instantly.</p>
+
+      <p>Theron is built on top of <a href="http://reactivex.io">ReactiveX</a>: a de facto standard paradigm for responsive, resilient, elastic, and message driven systems. Last but not least, Theron fits nicely with the modern frameworks such as React and Angular.</p>
+    </wrapper>
+  </section>
+
+  <section class="queries">
+    <wrapper class="narrow">
+      <h2>Smart realtime streaming with the most advanced database.</h2>
+
+      <p>Databases are the core of any application. Theron connects directly to the Postgres alongside your server and uses all of the advantages of SQL databases. Put simply, you can write plain queries to fetch, order, and stream data.</p>
+
+      <p>Depending on the query to the database, Theron understands which data is important and should be distributed, so it sends only payloads: the small artefacts of the query result needed in order to construct an entire dataset.</p>
+    </wrapper>
+  </section>
+
+  <section class="video" id="screencasts">
+    <wrapper class="narrow">
+      <h2>Watch how to build apps with Theron.</h2>
+
+      <p>In this video series we're gonna build a simple chat application. As an example, we also have a complete, production-ready, and open-sourced application <a href="https://figure-app.com">Figure</a>.</p>
+
+      <figure class="video">
+        <div data-tab="1">
+          <iframe src="//player.vimeo.com/video/159770071?api=1&title=0&byline=0&portrait=0&background=1&player_id=setup_project" id="setup_project"></iframe>
+        </div>
+
+        <div data-tab="2">
+          <iframe src="//player.vimeo.com/video/159770247?api=1&player_id=build_application&title=0&amp;byline=0&amp;portrait=0&amp;color=ff0179" id="build_application"></iframe>
+        </div>
+
+        <div data-tab="3" class="active">
+          <iframe src="//player.vimeo.com/video/159773083?api=1&player_id=integrate_theron&title=0&amp;byline=0&amp;portrait=0&amp;color=ff0179" id="integrate_theron"></iframe>
+        </div>
+
+        <div data-tab="4">
+          <iframe src="//player.vimeo.com/video/159773771?api=1&player_id=secure_theron&title=0&amp;byline=0&amp;portrait=0&amp;color=ff0179" id="secure_theron"></iframe>
+        </div>
+      </figure>
+
+      <footer class="episodes">
+        <a data-tab="1" class="episode">
+          <i></i>
+          <h5>Setup project</h5>
+        </a>
+
+        <a data-tab="2" class="episode">
+          <i></i>
+          <h5>Build application</h5>
+        </a>
+
+        <a data-tab="3" class="episode active">
+          <i></i>
+          <h5>Integrate Theron</h5>
+        </a>
+
+        <a data-tab="4" class="episode">
+          <i></i>
+          <h5>Secure Theron</h5>
+        </a>
+      </footer>
+    </wrapper>
+  </section>
+
+  <section class="features">
+    <wrapper>
+      <div class="feature">
+        <h4>Native Querying</h4>
+        <p>Connect a Postgres database to Theron and stream its data across clients by writing plain SQL queries as usual.</p>
+      </div>
+
+      <div class="feature">
+        <h4>Instant Updates</h4>
+        <p>Publish data to your audience and subscribe it to thousands of channels on a single connection.</p>
+      </div>
+
+      <div class="feature">
+        <h4>Secure Infrastructure</h4>
+        <p>We're constantly working on improving security features to ensure your data stays secure and protected.</p>
+      </div>
+    </wrapper>
+
+    <wrapper>
+      <div class="feature">
+        <h4>Modern Stack</h4>
+        <p>We're big fans of React, Angular, and friends such as ReactiveX, Redux, etc... Theron plays nicely with these guys.</p>
+      </div>
+
+      <div class="feature">
+        <h4>Plain Coding</h4>
+        <p>We believe wizard tools and codeless approaches don't fit growing apps. Write plain code and know internals.</p>
+      </div>
+
+      <div class="feature">
+        <h4>Friendly Support</h4>
+        <p>We don't have layers of support, so your messages are received and answered by the core developers.</p>
+      </div>
+    </wrapper>
+  </section>
+
+  <section class="signup">
+    <wrapper class="narrow">
+      <h3>Start building amazing apps for free.</h3>
+
+      <a href="/signup" class="signup">
+        <div>Get Started</div>
+      </a>
+    </wrapper>
+  </section>
+</main>

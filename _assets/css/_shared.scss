@@ -34,7 +34,6 @@ h1, h2, h3, h4, h5, h6, address {
 }
 
 h1 {
-  border-bottom: 2px solid $color-primary;
   font-size: 29px;
   font-weight: 400;
   padding-bottom: 2px;
@@ -49,7 +48,6 @@ h2 {
   font-size: 19pxpx;
   font-weight: 400;
 }
-
 
 table {
   border-collapse: collapse;
@@ -108,24 +106,27 @@ figure {
 }
 
 pre, code {
-  background-color: white;
-  border-radius: 3px;
   border: 0;
   font-family: Consolas, monospace;
   font-size: 13px;
   padding: 3px 5px;
 }
 
-pre {
+code {
+  background-color: white;
+}
+
+figure > pre {
+  background-color: white;
   border-radius: 3px;
   overflow-x: auto;
 
   > code {
+    background-color: transparent;
     display: block;
     padding: 0;
 
     table td {
-      background-color: white;
       padding: 0;
 
       pre {
@@ -143,6 +144,22 @@ pre {
 
   pre {
     margin: 0;
+  }
+}
+
+figure.video {
+  border: 0;
+  height: 0;
+  margin: 0;
+  padding-bottom: 56.25%;
+  position: relative;
+
+  iframe {
+    @include size(100%, 100%);
+    border: 0;
+    left: 0;
+    position: absolute;
+    top: 0;
   }
 }
 
@@ -246,11 +263,11 @@ spinner {
 wrapper {
   display: flex;
   margin: 0 auto;
-  max-width: 1000px;
+  max-width: 1050px;
   padding: 0 25px;
 
   &.narrow {
-    max-width: 700px;
+    max-width: 720px;
   }
 
   &.wide {
@@ -261,18 +278,6 @@ wrapper {
 main {
   h1, h2, h3, h4, h5, h6, p {
     margin: 15px 0;
-  }
-
-  ul {
-    margin: 15px 0;
-    list-style-position: inside;
-    list-style-type: disc;
-  }
-
-  ol {
-    margin: 15px 0;
-    list-style-position: inside;
-    list-style-type: decimal;
   }
 
   *:last-child {
@@ -311,6 +316,7 @@ header.main {
   nav.desktop ul {
     align-items: center;
     display: flex;
+    list-style-type: none;
 
     li {
       margin-left: 30px;
@@ -338,5 +344,39 @@ header.main {
       }
     }
   }
+}
+
+footer.main {
+  background-color: lighten(black, 20%);
+
+  wrapper {
+    align-items: center;
+    height: 60px;
+    justify-content: flex-start;
+    max-width: 800px;
+  }
+
+  ul {
+    display: flex;
+    list-style-type: none;
+
+    li {
+      margin-right: 20px;
+
+      a {
+        color: rgba(white, 0.6);
+        font-size: 13px;
+        font-weight: 500;
+
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+span.typing.highlight {
+  background-color: #5f85ac;
 }
 
