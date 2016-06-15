@@ -2,7 +2,7 @@
 author: "[Dimitri Rosenberg](https://github.com/rosendi)"
 class: blog post
 date: 2016-05-15
-description: Learn about building realtime applications with Theron.
+description: A big update, which includes significant improvements on the reliability, functionality, and usability of Theron.
 layout: post
 title: New Core Is Here!
 ---
