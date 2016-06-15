@@ -4,6 +4,10 @@ body.blog {
     max-width: 700px;
     padding: 120px 25px 50px;
   }
+
+  h1 {
+    border-bottom: 2px solid $color-primary;
+  }
 }
 
 body.blog.index {
