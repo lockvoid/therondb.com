@@ -23,4 +23,5 @@ assets:
   digest: true
 
   assets:
+    - "*.png"
     - "*.woff"
